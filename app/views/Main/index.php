@@ -8,8 +8,8 @@
 <body>
 	<h1>Welcome!</h1>
 	<p>Welcome to this application's index.</p>
-	<a href="/index.php?url=/Main/index">Index<a>
-	<a href="/index.php?url=/Main/index2">Index2<a>
-	<a href="/index.php?url=/Main/greetings/Bob">Greetings<a>
+	<a href="./././index.php?url=/Main/index">Index<a>
+	<a href="./././index.php?url=/Main/index2">Index2<a>
+	<a href="./././index.php?url=/Main/greetings/Bob">Greetings<a>
 </body>
 </html>

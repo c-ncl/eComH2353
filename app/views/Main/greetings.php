@@ -8,7 +8,7 @@
 <body>
 	Hi <?= $data ?>!<br>
 	Hi <?php echo $data; ?>!<br>
-	<a href="/index.php?url=/Main/index">Index<a>
+	<a href="eComH2353/app/views/Main/index.php?url=/Main/index">Index<a>
 	<a href="/index.php?url=/Main/index2">Index2<a>
 	<a href="/index.php?url=/Main/greetings/Bob">Greetings<a>
 </body>
