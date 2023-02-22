@@ -11,7 +11,6 @@ class User extends \app\core\Model
 	{
 		$SQL = 'SELECT * FROM User WHERE Username = :username';
 		$STH = $this->connection->prepare($SQL);
-
 		$STH->execute(['username'=>$username]);
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\User');
 		return $STH->fetch();
