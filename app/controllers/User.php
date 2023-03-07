@@ -58,16 +58,23 @@ class User extends \app\core\Controller
 		header('location:/User/index');
 	}
 
+	#[\app\filters\Login]
 	public function profile() //cant access if not logged in
 	{
-		if(!isset($_SESSION['user_id']))
-		{
-			header('location:/User/index');
-			return;
-		}
+		// if(!isset($_SESSION['user_id']))
+		// {
+		// 	header('location:/User/index');
+		// 	return;
+		// }
 
 		$message = new \app\models\Message();
 		$messages = $message->getAllForUser($_SESSION['user_id']);
 		$this->view('User/profile', $messages);
+	}
+
+	#[\app\filters\Login]
+	public function somehingSecret()
+	{
+		echo "If you see this, you are logged in";
 	}
 }
