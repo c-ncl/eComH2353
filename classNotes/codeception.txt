@@ -1,0 +1,30 @@
+Cloning github repository------------------------------------------------------------
+
+1. Enter htdocs
+2. Download Composer on cmd with the command "composer install"
+3. Vendor folder should be ther
+4. "codecept run" to run the tests 
+
+-------------------------------------------------------------------------------------
+Codeception
+
+"codecept run" or "codecept run Acceptance" to run the tests 
+
+Codeception syntax site -> https://codeception.com/docs/GettingStarted
+
+TDD: Test-Driven Development
+BDD: Behaviour Driven Development
+
+1. Define the wanted behaviour
+2. Code until it satisifes the test
+
+------------------------------------------------------------------------------------
+.env
+
+db_host="localhost"
+db_user="applicationDBUser"
+db_pass=""
+db_name="webapplication"
+db_charset="utf8mb4"
+
+
