@@ -8,3 +8,15 @@ Feature: google
   	When I input "dog" in "q"
   	And I press "Search"
     Then I see "dog"
+
+  Scenario: try google
+    Given I am on Google
+    When I input "cat" in "q"
+    And I press "Search"
+    Then I see "cat"
+
+  Scenario: try google
+    Given I am on Google
+    When I input "dog" in "q"
+    And I press "Search"
+    Then I don't see "Bounty Hunter"
