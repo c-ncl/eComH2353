@@ -28,3 +28,6 @@ db_name="webapplication"
 db_charset="utf8mb4"
 
 
+-----------------------------------------------------------------------------------
+views: gettext to output all languages strings
+

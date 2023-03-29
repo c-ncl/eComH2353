@@ -1,0 +1,1 @@
+\getText\bin\xgettext.exe %*
