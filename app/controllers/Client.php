@@ -30,6 +30,4 @@ class Client extends \app\core\Controller{
 		$client->delete($client_id);
 		header('location:/Client/index');
 	}
-
-
 }

@@ -1,0 +1,5 @@
+db_host="localhost"
+db_user="wbUser"
+db_pass="J2BOS4AJpAMCKsWP"
+db_name="webapplication"
+db_charset="utf8mb4"

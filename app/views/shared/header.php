@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="<?= _('ltr') ?>" lang="<?=_('en')?>" >
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +36,8 @@
 			            <li><a class="dropdown-item" href="/Main/index">Index</a></li>
 			            <li><a class="dropdown-item" href="/Main/index2">Index 2</a></li>
 			            <li><a class="dropdown-item" href="/Main/Greetings/Nicole">Greet User</a></li>
+			            <li><a class="dropdown-item" href="/Client/index">Client index</a></li>
+			            <li><a class="dropdown-item" href="/Client/create">Create Client Record</a></li>
 			          </ul>
 			        </li>
 			      </ul>
