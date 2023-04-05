@@ -26,6 +26,10 @@
 			        <li class="nav-item">
 			          <a class="nav-link" href="/User/profile">Profile</a>
 			        </li>
+			        <a href="?lang=fr_CA"><?= _('French') ?></a>
+					<a href="?lang=en"><?= _('English') ?></a>
+					<a href="?lang=ar"><?= _('Arabic') ?></a>
+
 			        <li class="nav-item dropdown">
 				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 				            Main
@@ -47,13 +51,12 @@
 
 	<div class="container">
 		<?php
-			if(isset($_GET['success']))
-			{
-				echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div>';
-			}
-
-			if(isset($_GET['error']))
-			{
-				echo '<div class="alert alert-danger d-flex align-items-center" role="alert">'.$_GET['error'].'</div>';
-			}
+		    if (isset($_GET['success']))
+		    {
+		    	echo '<div class="alert alert-success" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert"></button> '.$_GET['success'].'</div>';
+		    }
+		    if (isset($_GET['error']))
+		    {
+		    	echo '<div class="alert alert-danger" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert"></button> '.$_GET['error'].'</div>';
+		    }
 		?>
