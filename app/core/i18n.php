@@ -15,4 +15,45 @@ setlocale(LC_ALL, $rootlang.".UTF8");//which locale to use. .UTF8 is to ensure p
 bindtextdomain($lang, "locale"); //pointing to the locale folder for the language of choice
 textdomain($lang); //what is the file name to find translations
 
+//fetch the user timezone
+$tz = 'UTC';
+
+if(isset($_COOKIE['TZ']))
+{
+	$tz = $_COOKIE['TZ'];
+} 
+else 
+{
+	//get the timezone from
+	echo <<<EOE
+		<html>
+			<head><meta http-equiv="refresh" content="1">
+				<script type="text/javascript">
+					if(navigator.cookieEnabled)
+						document.cookie = "TZ=" + Intl.DateTimeFormat().resolvedOptions().timeZone + ";path=/";
+				</script>
+			</head>
+		</html>
+	EOE; 
+	die();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

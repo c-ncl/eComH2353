@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 05:25 PM
+-- Generation Time: Apr 11, 2023 at 04:34 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -36,6 +36,13 @@ CREATE TABLE `client` (
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `first_name`, `last_name`, `middle_name`) VALUES
+(1, 'bob', 'burgers', 'makes');
 
 -- --------------------------------------------------------
 
@@ -84,6 +91,27 @@ INSERT INTO `profile_information` (`user_id`, `first_name`, `middle_name`, `last
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `service`
+--
+
+DROP TABLE IF EXISTS `service`;
+CREATE TABLE `service` (
+  `service_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `datetime` datetime NOT NULL,
+  `client_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`service_id`, `description`, `datetime`, `client_id`) VALUES
+(1, 'bob will make burgers', '2023-05-02 10:21:00', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -127,6 +155,13 @@ ALTER TABLE `profile_information`
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`service_id`),
+  ADD KEY `service_to_client` (`client_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -141,13 +176,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
   MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -171,6 +212,12 @@ ALTER TABLE `message`
 --
 ALTER TABLE `profile_information`
   ADD CONSTRAINT `profile_to_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `service`
+--
+ALTER TABLE `service`
+  ADD CONSTRAINT `service_to_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
