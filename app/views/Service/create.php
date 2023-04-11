@@ -1,6 +1,6 @@
 <?php $this->view('shared/header',_('Create a new service appointment')); ?>
 <br>
-<a href='/Service/create/<?= $data->client_id ?>'><?= _('Create a new service') ?></a><br><br>
+<h3>Create a new service?</h3>
 
 <form method="post" action="">
 	    <label for="name"><?= _('Description') ?></label><br>
