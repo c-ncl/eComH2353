@@ -21,9 +21,9 @@
 				<tr><td><?= \app\core\TimeHelper::DTOutput($service->datetime) ?></td>
 					<td><?=$service->description?></td>
 					<td> 
-						<a href='/Service/edit/$service->client_id'>edit</a>
+						<a href='/Service/edit/<?=$service->service_id?>'>edit</a>
 						 | 
-						<a href='/Service/delete/$service->client_id'>delete</a>
+						<a href='/Service/delete/<?=$service->service_id?>'>delete</a>
 					</td>
 				</tr><br>
 			<?php }

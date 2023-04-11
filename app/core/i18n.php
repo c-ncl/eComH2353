@@ -4,6 +4,7 @@ if(isset($_GET['lang'])){ //if there is a language choice in the querystring
 	$lang = $_GET['lang'];//use this language
 	setcookie("lang",$lang, 0, '/'); //set a cookie for the entire domain
 } else {
+	$default = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 	$lang=(isset($_COOKIE["lang"])?$_COOKIE["lang"]:'en'); //from cookie or default
 }
 
@@ -37,23 +38,5 @@ else
 	EOE; 
 	die();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

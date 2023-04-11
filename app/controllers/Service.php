@@ -19,7 +19,7 @@ class Service extends \app\core\Controller
 		{
 			$service = new \app\models\Service();
 			$service->description = htmlentities($_POST['description']);
-			$service->datetime = $_POST['datetime'];
+			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
 			$service->client_id = $client_id;
 			$service->insert();
 
@@ -31,22 +31,22 @@ class Service extends \app\core\Controller
 		}
 	}
 
-	public function edit($client_id) //modify client record
+	public function edit($service_id) //modify client record
 	{
 		$service = new \app\models\Service();
-		$service = $client->get($service_id);
-		$client_id = $service->client_id;
+		$service = $service->get($service_id);
 
 		if(isset($_POST['action']))
 		{
 			$service->description = $_POST['description'];
-			$service->datetime = $_POST['datetime'];
+			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
 
-			$success = $client->edit();
+			$client_id = $service->client_id;
+			$success = $service->edit();
 			if($success){
-				header('location:/Service/index/'. $client_id .'?success=Client Updated.');
+				header('location:/Service/index/'. $client_id .'?success=Service Updated.');
 			} else {
-				header('location:/Client/index'. $client_id .'?error=Error.');
+				header('location:/Service/index'. $client_id .'?error=Error.');
 			}
 		} else {
 			$this->view('Service/edit', $service);
@@ -56,13 +56,17 @@ class Service extends \app\core\Controller
 	public function delete($service_id)
 	{
 		$service = new \app\models\Service();
-		$service->get($service_id);
-		//$client = $service->getClient(); do this in the view
+		$service = $service->get($service_id);
 
-		if(isset($_POST[action])){
+		if(isset($_POST['action'])){
 			$client_id = $service->client_id;
-			$service->delete();
-			header('location/Service/index/'. $client_id);
+			$success = $service->delete();
+
+			if($success){
+				header('location:/Service/index/'. $client_id .'?success=Service Deleted.');
+			} else {
+				header('location:/Service/index'. $client_id .'?error=Error.');
+			}
 		} else {
 			$this->view('Service/delete', $service);
 		}

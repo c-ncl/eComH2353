@@ -51,4 +51,12 @@ class Service extends \app\core\Model{
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Service');
 		return $STH->fetch();
 	}
+
+	public function getClient(){
+		$SQL = 'SELECT * FROM client WHERE client_id=:client_id';
+		$STH = self::$connection->prepare($SQL);
+		$STH->execute(['client_id'=>$this->client_id]);
+		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Service');
+		return $STH->fetch();
+	}
 }
