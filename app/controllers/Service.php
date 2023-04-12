@@ -19,7 +19,7 @@ class Service extends \app\core\Controller
 		{
 			$service = new \app\models\Service();
 			$service->description = htmlentities($_POST['description']);
-			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
+			$service->datetime = $_POST['datetime'];
 			$service->client_id = $client_id;
 			$service->insert();
 
@@ -39,7 +39,7 @@ class Service extends \app\core\Controller
 		if(isset($_POST['action']))
 		{
 			$service->description = $_POST['description'];
-			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
+			$service->datetime = T$_POST['datetime'];
 
 			$client_id = $service->client_id;
 			$success = $service->edit();

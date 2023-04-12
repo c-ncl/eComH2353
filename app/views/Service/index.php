@@ -1,7 +1,16 @@
 <?php $this->view('shared/header', _('List of Service Appointments for the Client')); ?>
 <br>
-<a href='/Service/create/<?= $data->client_id ?>'><?= _('Create a new service') ?></a><br><br>
 
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col">
+      <a href='/Client/index'><?= _('Back') ?></a><br><br>
+    </div>
+    <div class="col">
+      <a href='/Service/create/<?= $data->client_id ?>'><?= _('Create a new service') ?></a><br><br>
+    </div>
+  </div>
+</div>
 
 <?php $this->view('Client/detailsPartial', $data) ?><br><br>
 

@@ -21,7 +21,7 @@ class Message extends \app\core\Controller
 				$message->insert();
 				header('location:/User/profile');
 			} else {
-				eader('location:/User/profile?error=' . "$receiver is not a valid user. No message sent.");
+				header('location:/User/profile?error=' . "$receiver is not a valid user. No message sent.");
 			}
 		} else {
 			header('location:/User/profile');

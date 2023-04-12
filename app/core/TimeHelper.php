@@ -24,15 +24,20 @@ class TimeHelper
 
 	public static function DTInput($s_datetime)
 	{
-		//create a datetime object in the local timezone
-		global $tz;
-		$datetime = new DateTime($s_datetime, new DateTimeZone($tz));
-
-		//change the timezone
-		$datetime->setTimeZone(new DateTimeZone('UTC'));
-
-		//output to a standard string format
-		return $datetime->format('Y-m-d H:i:s');
+		try 
+		{
+			//create a datetime object in the local timezone
+			global $tz;
+			$datetime = new DateTime($s_datetime, new DateTimeZone($tz));
+	
+			//change the timezone
+			$datetime->setTimeZone(new DateTimeZone('UTC'));
+	
+			//output to a standard string format
+			return $datetime->format('Y-m-d H:i:s');
+		} catch(Exception $e) {
+			return '';
+		}
 	}
 
 	public static function DTOutBrowser($s_datetime)

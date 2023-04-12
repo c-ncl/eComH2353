@@ -1,13 +1,26 @@
 <?php
 namespace app\models;
 
+use app\core\TimeHelper;
+
 class Service extends \app\core\Model{
 	public $service_id;
+	#[\app\validators\NonEmpty]
+	#[\app\validators\NonNull]
 	public $description;
-	public $datetime;
+	#[\app\validators\DateTime]
+	#[\app\validators\NonNull]
+	protected $datetime; //protected to force the execution of __set (and __get) in Model
 	public $client_id;
 
-	public function insert(){
+	protected function setDateTime($value)
+	{
+		//on setting, change the timezone
+		$this->datetime = TimeHelper::DTInput($value);
+	}
+
+	//protected to force execution of __call in Model
+	protected function insert(){
 		$SQL = "INSERT INTO `service` (description, datetime, client_id) value (:description, :datetime, :client_id)";
 		$STH = self::$connection->prepare($SQL);
 		$data = ['description'=>$this->description,
@@ -17,7 +30,7 @@ class Service extends \app\core\Model{
 		$this->service_id = self::$connection->lastInsertId();
 	}
 
-	public function edit()
+	protected function edit()
 	{
 		$SQL = "UPDATE `service` SET `description`=:description,`datetime`=:datetime WHERE service_id=:service_id";
 		$STH = self::$connection->prepare($SQL);

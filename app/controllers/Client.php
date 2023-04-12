@@ -63,5 +63,4 @@ class Client extends \app\core\Controller{
 		echo TimeHelper::DTOutput($date, $lang, 'America/Montreal');
 	}
 
-
 }

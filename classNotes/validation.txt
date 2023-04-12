@@ -1,0 +1,15 @@
+//validation is verification of data you put in your database
+
+questions like:
+	is this a real email?
+	is this a real URL?
+
+keep the garbage out
+
+//Validation (Automated)
+	- Validator interface
+	- Validator classes
+	- Automation
+		-Attributes
+		-isValid
+		-__Call -> (call method) have the model call the validator
