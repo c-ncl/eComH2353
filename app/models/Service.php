@@ -7,7 +7,7 @@ class Service extends \app\core\Model{
 	public $service_id;
 	#[\app\validators\NonEmpty]
 	#[\app\validators\NonNull]
-	public $description;
+	protected $description;
 	#[\app\validators\DateTime]
 	#[\app\validators\NonNull]
 	protected $datetime; //protected to force the execution of __set (and __get) in Model
@@ -17,6 +17,12 @@ class Service extends \app\core\Model{
 	{
 		//on setting, change the timezone
 		$this->datetime = TimeHelper::DTInput($value);
+	}
+
+	protected function setDescription($value)
+	{
+		//on setting, change the timezone
+		$this->description = htmlentities($value, ENT_QUOTES);
 	}
 
 	//protected to force execution of __call in Model

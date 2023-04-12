@@ -18,7 +18,7 @@ class Service extends \app\core\Controller
 		if(isset($_POST['action']))
 		{
 			$service = new \app\models\Service();
-			$service->description = htmlentities($_POST['description']);
+			$service->description = $_POST['description'];
 			$service->datetime = $_POST['datetime'];
 			$service->client_id = $client_id;
 			$service->insert();
