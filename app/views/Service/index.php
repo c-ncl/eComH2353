@@ -19,6 +19,7 @@
     	<tr>
       	<th scope="col">Date and Time</th>
       	<th scope="col">Description</th>
+      	<th scope="col">Location</th>
       	<th scope="col">Actions</th>
     	</tr>
   	</thead>
@@ -28,7 +29,8 @@
 			$services = $data->getService();
 			foreach ($services as $service) { ?>
 				<tr><td><?= \app\core\TimeHelper::DTOutput($service->datetime) ?></td>
-					<td><?=$service->description?></td>
+					<td><?= $service->description ?></td>
+					<td><?= $service->name ?></td>
 					<td> 
 						<a href='/Service/edit/<?=$service->service_id?>'>edit</a>
 						 | 

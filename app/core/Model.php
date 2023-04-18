@@ -74,10 +74,12 @@ class Model{
 
 	public function __set($name, $value)
 	{
-		$method = "$set$name";
+		$method = "set$name";
 		if(method_exists($this, $method))
 		{
 			$this->$method($value);
+		} else {
+			$this->name = $value;
 		}
 	}
 

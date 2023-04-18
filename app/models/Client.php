@@ -38,7 +38,7 @@ class Client extends \app\core\Model{
 
 
 	public function getAll(){
-		$SQL = "SELECT * FROM client";
+		$SQL = "SELECT * FROM client ";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute();
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Client');
@@ -55,10 +55,10 @@ class Client extends \app\core\Model{
 
 	//return service records for this client $services = $client->getServices
 	public function getService(){
-		$SQL = "SELECT * FROM service WHERE client_id=:client_id";
+		$SQL = "SELECT * FROM service JOIN branch ON service.branch_id=branch.branch_id  WHERE client_id=:client_id";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute(['client_id'=>$this->client_id]);
-		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Service');
+		$STH->setFetchMode(\PDO::FETCH_OBJ);
 		return $STH->fetchAll();
 	}
 }

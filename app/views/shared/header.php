@@ -10,7 +10,7 @@
 	<title><?= $data ?></title>
 </head>
 <body>
-	<?php $this->view('shared/navigation/sidebar'); ?>
+	<?php $this->view('shared/navigation/navbar'); ?>
 
 	<div class="container">
 		<?php
